@@ -39,20 +39,24 @@ namespace DeesMoneyScrap
             chromeDriver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
             //var mytable = wait.Until(d => d.FindElement(By.ClassName("gIc8M")));
             var mytable = wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
-            
+
+            var rowCount = mytable.FindElements(By.XPath(".//tr")).Count;
+
             var rowXpath = "//tr[@data-index='0']";
             var symb = mytable.FindElement(By.XPath(rowXpath + "//a[contains(@href,'/quote/')]")).Text;
-            var lastP = chromeDriver.FindElementByXPath(rowXpath + "//span[@class='_3Bucv']").Text;
-            var change = chromeDriver.FindElementByXPath(rowXpath + "//span[contains(@class,'_2ZN-S')]").Text;
-            var changePerc = chromeDriver.FindElementByXPath(rowXpath + "/td[4]/span").Text;
+            var lastP = mytable.FindElement(By.XPath(rowXpath + "//span[@class='_3Bucv']")).Text;
+            var change = mytable.FindElement(By.XPath(rowXpath + "//span[contains(@class,'_2ZN-S')]")).Text;
+            var changePerc = mytable.FindElement(By.XPath(rowXpath + "/td[4]/span")).Text;
             //var volume = chromeDriver.FindElementByXPath(rowXpath + "/td[7]/span").Text;
             var volume = mytable.FindElement(By.XPath(rowXpath + "/td[7]/span")).Text;
-                
+            var volAvg = mytable.FindElement(By.XPath(rowXpath + "/td[9]")).Text;
 
 
 
 
-            Console.WriteLine($"Dee's table : {symb} {lastP} {change} {changePerc} {volume}");
+            Console.WriteLine(rowCount);
+            Console.WriteLine();
+            Console.WriteLine($"Dee's table : {symb} {lastP} {change} {changePerc} {volume} {volAvg}");
 
             //use xpath to target an element
             //var mytable = chromeDriver.FindElementById("main");
