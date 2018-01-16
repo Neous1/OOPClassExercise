@@ -54,8 +54,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drivers.cs" />
+    <Compile Include="myScrapeDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrapeTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,13 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 
 namespace DeesMoneyScrap
 {
-    public class Drivers
+    class Login
     {
-        public static ChromeDriver Driver = new ChromeDriver();
+        private readonly string _pswd;
+        private readonly string _username;
+
+        public Login(string username, string pswd)
+        {
+            _username = username;
+            _pswd = pswd;
+        }
+
+        public void LogIn()
+        {
+            //login to yahoo
+            Drivers.Driver.Navigate()
+                .GoToUrl(
+                    "https://login.yahoo.com/?.src=fpctx&.intl=us&.lang=en-US&authMechanism=primary&yid=&done=https%3A%2F%2Fwww.yahoo.com%2F&eid=100&add=1");
+            var username = Drivers.Driver.FindElementById("login-username");
+            username.SendKeys("jayd9817");
+            var nextButton = Drivers.Driver.FindElementById("login-signin");
+            nextButton.Click();
+
+            //setup wait time to make sure table is built
+            //WebDriverWait wait = new WebDriverWait(Drivers.Driver, TimeSpan.FromSeconds(10));
+            var pswd = Drivers.Wait.Until(d => d.FindElement(By.Id("login-passwd")));
+
+            pswd.SendKeys("ICG9817#");
+            var sign = Drivers.Driver.FindElementById("login-signin");
+            sign.Click();
+
+        }
+
+
 
     }
 
@@ -25,28 +54,13 @@ namespace DeesMoneyScrap
 
             // var chromeDriver = new ChromeDriver(options);
 
-            //login to yahoo
-            Drivers.Driver.Navigate()
-                .GoToUrl(
-                    "https://login.yahoo.com/?.src=fpctx&.intl=us&.lang=en-US&authMechanism=primary&yid=&done=https%3A%2F%2Fwww.yahoo.com%2F&eid=100&add=1");
-            var username = Drivers.Driver.FindElementById("login-username");
-            username.SendKeys("jayd9817");
-            var nextButton = Drivers.Driver.FindElementById("login-signin");
-            nextButton.Click();
-
-            //setup wait time to make sure table is built
-            WebDriverWait wait = new WebDriverWait(Drivers.Driver, TimeSpan.FromSeconds(10));
-            var pswd = wait.Until(d => d.FindElement(By.Id("login-passwd")));
-
-            pswd.SendKeys("ICG9817#");
-            var sign = Drivers.Driver.FindElementById("login-signin");
-            sign.Click();
+            
 
             //go to portfolio page
             Drivers.Driver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
 
             //load table
-            var mytable = wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
+            var mytable = Drivers.Wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
 
             var rowCount = mytable.FindElements(By.XPath(".//tr")).Count; //row shortcut
 
