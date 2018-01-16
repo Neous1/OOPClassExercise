@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeesMoneyScrap
 {
-    class myScrapeDbContext  
+    class MyScrapeDbContext  
     {
     }
 }
