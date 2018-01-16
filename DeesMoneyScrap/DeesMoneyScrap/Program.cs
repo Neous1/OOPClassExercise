@@ -39,20 +39,27 @@ namespace DeesMoneyScrap
             var mytable = wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
 
             var rowCount = mytable.FindElements(By.XPath(".//tr")).Count;
-
-            var rowXpath = "//tr[3]"; //"//tr[@data-index='0']";
-            var symb = mytable.FindElement(By.XPath(rowXpath + "/td[1]/span/a")).Text; //"//a[contains(@href,'/quote/')]")).Text;
-            var lastP = mytable.FindElement(By.XPath(rowXpath + "/td[2]/span")).Text; //"//span[@class='_3Bucv']")).Text;
-            var change = mytable.FindElement(By.XPath(rowXpath + "/td[3]/span")).Text; //"//span[contains(@class,'_2ZN-S')]")).Text;
-            var changePerc = mytable.FindElement(By.XPath(rowXpath + "/td[4]/span")).Text;
-            var volume = mytable.FindElement(By.XPath(rowXpath + "/td[7]/span")).Text;
-            var volAvg = mytable.FindElement(By.XPath(rowXpath + "/td[9]")).Text;
-
+            
             Console.WriteLine();
             Console.WriteLine(rowCount);
             Console.WriteLine();
-            Console.WriteLine($"Dee's table : {symb} {lastP} {change} {changePerc} {volume} {volAvg}");
+           // Console.WriteLine($"Dee's table : {symb} {lastP} {change} {changePerc} {volume} {volAvg}");
 
+
+            for (int i = 1; i <= rowCount; i++)
+            {
+                var rowXpath = $"//tr[{i}]"; //"//tr[@data-index='0']";
+                var pullTime = DateTime.Now;
+                var symb = mytable.FindElement(By.XPath(rowXpath + "/td[1]/span/a")).Text; //"//a[contains(@href,'/quote/')]")).Text;
+                var lastP = mytable.FindElement(By.XPath(rowXpath + "/td[2]/span")).Text; //"//span[@class='_3Bucv']")).Text;
+               // var change = mytable.FindElement(By.XPath(rowXpath + "/td[3]/span")).Text; //"//span[contains(@class,'_2ZN-S')]")).Text;
+                var changePerc = mytable.FindElement(By.XPath(rowXpath + "/td[4]/span")).Text;
+                var volume = mytable.FindElement(By.XPath(rowXpath + "/td[7]/span")).Text;
+                var volAvg = mytable.FindElement(By.XPath(rowXpath + "/td[9]")).Text;
+                Console.WriteLine($"{pullTime}\t{symb}\t{lastP}\t{changePerc}\t{volume}\t{volAvg}");
+                Console.WriteLine();
+            }
+            chromeDriver.Close();
             //use xpath to target an element
 
             //var mytable = chromeDriver.FindElementById("main");
