@@ -12,8 +12,8 @@ namespace DeesMoneyScrap
         private static ChromeOptions SetDriverOptions()
         {
             ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("--disable-gpu");
-            options.AddArgument("--headless");
+            options.AddArgument("--disable-gpu");
+            //options.AddArgument("--headless");
             return options;
         }
          
