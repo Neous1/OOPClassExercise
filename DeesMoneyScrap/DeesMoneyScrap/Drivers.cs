@@ -16,13 +16,6 @@ namespace DeesMoneyScrap
             //options.AddArgument("--headless");
             return options;
         }
-         
-
-
-
-
-
-
 
         //var options = new ChromeOptions();
         
