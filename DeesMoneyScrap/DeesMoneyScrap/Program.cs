@@ -34,7 +34,6 @@ namespace DeesMoneyScrap
             {            //loop thru the table by row
                 for (int i = 1; i <= rowCount; i++)
                 {
-                    
                     var rowXpath = $"//tr[{i}]"; //"//tr[@data-index='0']";
                     var symb = mytable.FindElement(By.XPath(rowXpath + "/td[1]/span/a"))
                         .Text.ToString();
