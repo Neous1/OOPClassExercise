@@ -57,7 +57,7 @@ namespace DeesMoneyScrap
                 Console.ReadLine();
             }
 
-          //  Drivers.Driver.Close();
+            Drivers.Driver.Close();
         }
     }
 
