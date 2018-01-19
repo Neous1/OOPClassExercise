@@ -10,6 +10,10 @@ namespace DeesMoneyScrap
 {
     public class MyScrapeDbContext  : DbContext
     {
+        public MyScrapeDbContext():base()
+        {
+            
+        }
        public DbSet<ScrapeTable> ScrapeTables { get; set; }
     }
 }
