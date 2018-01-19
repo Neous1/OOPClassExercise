@@ -15,8 +15,14 @@ namespace SalaryCalculatorTestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AnnualSalaryTest()
         {
+            //Arrange
+            SalaryCalculator sc = new SalaryCalculator();
+            //Act
+            decimal annualSalary = sc.GetAnnualSalary(50);
+            //Assert
+            Assert.AreEqual(10400, annualSalary);
         }
     }
 }
