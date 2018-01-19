@@ -7,6 +7,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace DeesMoneyScrap
 {
+  
     class Program
     {
         static void Main(string[] args)
