@@ -21,7 +21,7 @@ namespace Calculator
         public decimal GetHourlyWage(int annualSalary)
         {
 
-            return annualSalary / hoursInYear;
+            return annualSalary/hoursInYear;
         }
     }
 }
