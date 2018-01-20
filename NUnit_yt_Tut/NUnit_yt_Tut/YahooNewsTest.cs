@@ -9,18 +9,12 @@ namespace NUnit_yt_Tut
 {
     [TestFixture]
     [Parallelizable]
-    public class SampleTest
+    public class YahooNewsTest
     {
         [Test]
-        public void testApp()
+        public void testNews()
         {
-            Console.WriteLine("Testing app");
-        }
-
-        [Test]
-        public void loginTest()
-        {
-            Console.WriteLine("loging test");
+            Console.WriteLine("Test news");
         }
     }
 }

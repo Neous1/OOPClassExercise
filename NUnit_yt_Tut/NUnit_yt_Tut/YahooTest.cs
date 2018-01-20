@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace NUnit_yt_Tut
 {
     [TestFixture]
+    [Parallelizable]
     public class YahooTest
     {
         [Test]
@@ -21,7 +22,7 @@ namespace NUnit_yt_Tut
             Console.WriteLine("testing Sending mail");
         }
 
-        [SetUp]
+        [SetUp] //called before executing every test case
 
         public void setup()
         {
@@ -29,7 +30,8 @@ namespace NUnit_yt_Tut
             Console.WriteLine("opening browser");
         }
 
-        [TearDown]
+        [TearDown] //called after executing every test case
+
         public void tearDown()
         {
             Console.WriteLine("Closing Browser");
