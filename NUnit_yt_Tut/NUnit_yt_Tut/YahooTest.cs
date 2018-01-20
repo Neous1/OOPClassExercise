@@ -25,7 +25,8 @@ namespace NUnit_yt_Tut
 
         public void setup()
         {
-            Console.WriteLine("In Setup");
+            //setup can be used to open browser with selenium
+            Console.WriteLine("opening browser");
         }
     }
 }
