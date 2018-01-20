@@ -28,5 +28,11 @@ namespace NUnit_yt_Tut
             //setup can be used to open browser with selenium
             Console.WriteLine("opening browser");
         }
+
+        [TearDown]
+        public void tearDown()
+        {
+            Console.WriteLine("Closing Browser");
+        }
     }
 }
