@@ -11,10 +11,15 @@ namespace NUnit_yt_Tut
     public class SampleTest
     {
         [Test]
-        public void TestApp()
+        public void testApp()
         {
-            // TODO: Add your test code here
-            Assert.Pass("Your first passing test");
+            Console.WriteLine("Testing app");
+        }
+
+        [Test]
+        public void loginTest()
+        {
+            Console.WriteLine("loging test");
         }
     }
 }
