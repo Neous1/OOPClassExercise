@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace NUnit_yt_Tut
 {
-    [TestFixture]
+    [TestFixture] 
     [Parallelizable]
+    [Ignore("Skip test")]
     public class YahooNewsTest
     {
         [Test]

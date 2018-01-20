@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace NUnit_yt_Tut
 {
     [TestFixture]
-    [Parallelizable]
+    [Parallelizable] //using Parallelizable to run test cases concurrently
     public class YahooTest
     {
         [Test]
