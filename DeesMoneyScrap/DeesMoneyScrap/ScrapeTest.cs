@@ -23,16 +23,16 @@ namespace DeesMoneyScrap
             var logMeIn = new Login("jayd9817", "ICG9817#");
             logMeIn.LogIn();
             //Console.WriteLine("login to yahoo");
-        }
-        [Test]
-        public void testAccesstoPortfolio()
-        {
+
             //go to portfolio page
             Drivers.Driver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
 
             //load table
             var mytable = Drivers.Wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
             //return mytable;
+
+            // Assert.
         }
+
     }
 }
