@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
 
 namespace DeesMoneyScrap
 {
@@ -26,7 +27,12 @@ namespace DeesMoneyScrap
         [Test]
         public void testAccesstoPortfolio()
         {
-            
+            //go to portfolio page
+            Drivers.Driver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
+
+            //load table
+            var mytable = Drivers.Wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
+            //return mytable;
         }
     }
 }
