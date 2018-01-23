@@ -1,3 +1,4 @@
+using System;
 using OpenQA.Selenium;
 
 namespace DeesMoneyScrap
@@ -19,19 +20,17 @@ namespace DeesMoneyScrap
             Drivers.Driver.Navigate()
                 .GoToUrl(
                     "https://login.yahoo.com/?.src=fpctx&.intl=us&.lang=en-US&authMechanism=primary&yid=&done=https%3A%2F%2Fwww.yahoo.com%2F&eid=100&add=1");
-            var username = Drivers.Driver.FindElementById("login-username");
+            var username = Drivers.Driver.FindElement(By.Id("login-username"));
             username.SendKeys(_username);
-            var nextButton = Drivers.Driver.FindElementById("login-signin");
-            nextButton.Click();
-
+            var nextButton = Drivers.Driver.FindElement(By.Id("login-signin"));
+            nextButton.Submit();
             //setup wait time to make sure table is built
             //WebDriverWait wait = new WebDriverWait(Drivers.Driver, TimeSpan.FromSeconds(10));
             var pswd = Drivers.Wait.Until(d => d.FindElement(By.Id("login-passwd")));
 
             pswd.SendKeys(_pswd);
-            var sign = Drivers.Driver.FindElementById("login-signin");
+            var sign = Drivers.Driver.FindElement(By.Id("login-signin"));
             sign.Click();
-
         }
 
 

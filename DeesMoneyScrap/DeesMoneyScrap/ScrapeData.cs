@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using OpenQA.Selenium;
 
 namespace DeesMoneyScrap
@@ -15,7 +16,7 @@ namespace DeesMoneyScrap
 
             //go to portfolio page
             Driver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
-
+            
             //load table
             var mytable = Drivers.Wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
             return mytable;
@@ -55,11 +56,11 @@ namespace DeesMoneyScrap
                     };
 
                     db.ScrapeTables.Add(anotherTable);
-                    db.SaveChanges();
-
+                    
                 }
+                db.SaveChanges();
 
-                Console.ReadLine();
+                //Console.ReadLine();
             }
 
             Drivers.Driver.Close();

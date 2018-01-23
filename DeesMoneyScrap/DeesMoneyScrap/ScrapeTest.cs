@@ -14,6 +14,7 @@ namespace DeesMoneyScrap
         [Test]
         public void testLogin()
         {
+            //var badPass = "//*[@id="password - challenge"]/form/p[1]"
             //navigate to the url
             Drivers.Driver.Navigate()
                 .GoToUrl(
@@ -31,7 +32,7 @@ namespace DeesMoneyScrap
             var mytable = Drivers.Wait.Until(d => d.FindElement(By.XPath("//table[@data-test='contentTable']/tbody")));
             //return mytable;
 
-            // Assert.
+            
         }
 
     }
